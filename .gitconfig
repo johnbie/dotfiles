@@ -5,3 +5,5 @@
 	sort = committerdate
 [alias]
 	kick = commit --allow-empty -m \"kick pipe\" && git push
+	pushf = push --force-with-lease
+	pushff = push -f
