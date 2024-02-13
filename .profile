@@ -35,6 +35,3 @@ fi
 if [ -d "$HOME/dotfiles/scripts/source_configs.sh" ] ; then
     . "$HOME/dotfiles/scripts/source_configs.sh"
 fi
-
-# Added by Toolbox App
-export PATH="$PATH:/home/johnlee/.local/share/JetBrains/Toolbox/scripts"
