@@ -26,29 +26,10 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-env=~/.ssh/agent.env
-
-agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
-
-agent_start () {
-    (umask 077; ssh-agent >| "$env")
-    . "$env" >| /dev/null ; }
-
-agent_load_env
-
-# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2=agent not running
-agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
-
-if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
-    agent_start
-    ssh-add
-elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
-    ssh-add
+# source ssh_agent.sh if it exists
+if [ -d "$HOME/dotfiles/scripts/ssh_agent.sh" ] ; then
+    . "$HOME/dotfiles/scripts/ssh_agent.sh"
 fi
-
-unset env
-
 
 # Added by Toolbox App
 export PATH="$PATH:/home/johnlee/.local/share/JetBrains/Toolbox/scripts"
-
