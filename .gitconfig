@@ -3,3 +3,5 @@
 	name = John Lee
 [branch]
 	sort = committerdate
+[alias]
+	kick = commit --allow-empty -m \"kick pipe\" && git push
