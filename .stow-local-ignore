@@ -1,3 +1,4 @@
+# stow default
 RCS
 .+,v
 
@@ -18,3 +19,6 @@ _darcs
 ^/README.*
 ^/LICENSE.*
 ^/COPYING
+
+# custom additions
+^/configs/*
