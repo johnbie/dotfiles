@@ -27,11 +27,11 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # source ssh_agent.sh if it exists
-if [ -d "$HOME/dotfiles/scripts/ssh_agent.sh" ] ; then
+if [ -n "$HOME/dotfiles/scripts/ssh_agent.sh" ] ; then
     . "$HOME/dotfiles/scripts/ssh_agent.sh"
 fi
 
 # source source_configs.sh if it exists
-if [ -d "$HOME/dotfiles/scripts/source_configs.sh" ] ; then
+if [ -n "$HOME/dotfiles/scripts/source_configs.sh" ] ; then
     . "$HOME/dotfiles/scripts/source_configs.sh"
 fi
