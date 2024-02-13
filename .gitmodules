@@ -1,3 +1,6 @@
 [submodule "configs/soci"]
 	path = configs/soci
 	url = git@github.com:johnbie/soci-dotfile-config
+[submodule "configs/secret"]
+	path = configs/secret
+	url = git@github.com:johnbie/secret-dotfile-config
