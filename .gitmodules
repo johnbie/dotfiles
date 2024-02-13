@@ -1,0 +1,3 @@
+[submodule "configs/soci"]
+	path = configs/soci
+	url = git@github.com:johnbie/soci-dotfile-config
