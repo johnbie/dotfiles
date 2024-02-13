@@ -31,5 +31,10 @@ if [ -d "$HOME/dotfiles/scripts/ssh_agent.sh" ] ; then
     . "$HOME/dotfiles/scripts/ssh_agent.sh"
 fi
 
+# source source_configs.sh if it exists
+if [ -d "$HOME/dotfiles/scripts/source_configs.sh" ] ; then
+    . "$HOME/dotfiles/scripts/source_configs.sh"
+fi
+
 # Added by Toolbox App
 export PATH="$PATH:/home/johnlee/.local/share/JetBrains/Toolbox/scripts"
