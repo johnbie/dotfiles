@@ -26,12 +26,11 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# source ssh_agent.sh if it exists
-if [ -n "$HOME/dotfiles/scripts/ssh_agent.sh" ] ; then
-    . "$HOME/dotfiles/scripts/ssh_agent.sh"
+# run the auto-run scripts
+autorun_scripts="$HOME/dotfiles/autorun"
+if [ -f "$configs_dir" ]; then
+    # Loop through each sub-folder
+        . "$autorun_scripts"
+    done
 fi
 
-# source source_configs.sh if it exists
-if [ -n "$HOME/dotfiles/scripts/source_configs.sh" ] ; then
-    . "$HOME/dotfiles/scripts/source_configs.sh"
-fi
