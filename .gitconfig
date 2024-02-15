@@ -1,5 +1,4 @@
 [core]
-	autocrlf = true
 	longpaths = true
 [user]
 	email = johnqwerty.lee1@gmail.com
