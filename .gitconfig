@@ -1,3 +1,6 @@
+[core]
+	autocrlf = true
+	longpaths = true
 [user]
 	email = johnqwerty.lee1@gmail.com
 	name = John Lee
@@ -9,3 +12,7 @@
 	pushff = push -f
 [push]
 	autoSetupRemote = true
+[http]
+	postbuffer = 52428800
+[rebase]
+	autoStash = true
