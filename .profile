@@ -28,9 +28,10 @@ fi
 
 # run the auto-run scripts
 autorun_scripts="$HOME/dotfiles/autorun"
-if [ -f "$configs_dir" ]; then
+if [ -d "$autorun_scripts" ]; then
     # Loop through each sub-folder
-        . "$autorun_scripts"
+    for autorun_script in "$autorun_scripts"/*; do
+        . "$autorun_script"
     done
 fi
 
