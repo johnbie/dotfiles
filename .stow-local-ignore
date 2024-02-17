@@ -22,4 +22,4 @@ _darcs
 
 # custom additions
 ^/configs/*
-^/scripts/*
+^/autorun/*
