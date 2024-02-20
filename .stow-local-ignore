@@ -21,5 +21,6 @@ _darcs
 ^/COPYING
 
 # custom additions
-^/configs/*
 ^/autorun/*
+^/commands/*
+^/configs/*
