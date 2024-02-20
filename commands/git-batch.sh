@@ -1,4 +1,11 @@
 #!/bin/sh
+
+# Usage Guide
+# Run an arbituary git command on a collection of repositories as defined in the ~/dotfiles/configs/**/repos text file.
+# For instance, `.git-batch.sh main fetch` fetches on all repositories defined in ~/dotfiles/configs/main/repos
+# and `.git-batch.sh main "fetch --all"` fetches for all remotes.
+
+
 # need 2 parameters
 if [ $# -ne 2 ]; then
     echo "At least 2 arguments are required"
