@@ -21,9 +21,7 @@ fi
 # add an alias per commands file
 commands_dir="$HOME/dotfiles/commands"
 if [ -d "$commands_dir" ]; then
-    echo "$commands_dir"
     for command_file in "$commands_dir"/*; do
-        echo "$command_file"
         # Check if the file is a regular file and executable
         if [ -f "$command_file" ] && [ -x "$command_file" ]; then
             # Extract the command from the file path
@@ -33,7 +31,6 @@ if [ -d "$commands_dir" ]; then
             alias_command="source $command_file"
             # Add the alias to the shell configuration file (e.g., ~/.bashrc)
             eval "alias $alias_name=\"$alias_command\""
-            echo "Added alias $alias_name=\"$alias_command\""
         fi
     done
 fi
