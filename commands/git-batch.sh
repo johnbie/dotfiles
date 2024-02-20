@@ -2,7 +2,7 @@
 # need 2 parameters
 if [ $# -ne 2 ]; then
     echo "At least 2 arguments are required"
-    exit 1
+    return 1
 fi
 
 # set up variables
@@ -13,7 +13,7 @@ repos_path="$HOME/dotfiles/configs/$configs_namespace/repos"
 # repos path exists
 if [ ! -f $repos_path ]; then
     echo "Repos file $repos_path not found."
-    exit 1
+    return 1
 fi
 
 # Read each line of the file
