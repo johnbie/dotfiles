@@ -2,8 +2,8 @@
 
 # Usage Guide
 # Run an arbituary git command on a collection of repositories as defined in the ~/dotfiles/configs/**/repos text file.
-# For instance, `.git-batch.sh main fetch` fetches on all repositories defined in ~/dotfiles/configs/main/repos
-# and `.git-batch.sh main "fetch --all"` fetches for all remotes.
+# For instance, `.git-batch.sh fetch main` fetches on all repositories defined in ~/dotfiles/configs/main/repos
+# and `.git-batch.sh fetch --all main` fetches for all remotes.
 
 
 # need 2 parameters
