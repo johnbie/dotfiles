@@ -18,3 +18,8 @@
 	postbuffer = 52428800
 [rebase]
 	autoStash = true
+[safe]
+	directory = /storage/emulated/0/notes/second-brain
+	directory = /storage/emulated/0/notes/books
+	directory = /storage/emulated/0/notes/music-sheets
+	directory = /storage/emulated/0/notes/vansoftworks-technical-wiki
