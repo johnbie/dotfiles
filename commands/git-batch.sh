@@ -35,7 +35,8 @@ while IFS= read -r repo_dir; do
 
     # Check if the directory exists
     if [ -d "$repo_dir" ]; then
-        echo "pulling for $repo_dir..."
+        echo "Running 'git $git_command' on '$repo_dir'"
+
         # Change directory and perform git operation
         cd "$repo_dir" || continue
         eval "git $git_command"
@@ -45,4 +46,5 @@ while IFS= read -r repo_dir; do
     else
         echo "Directory '$repo_dir' does not exist."
     fi
+    printf "\n"
 done < $repos_path
