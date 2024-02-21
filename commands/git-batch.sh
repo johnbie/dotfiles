@@ -7,14 +7,14 @@
 
 
 # need 2 parameters
-if [ $# -ne 2 ]; then
-    echo "At least 2 arguments are required"
+if [ $# -lt 2 ]; then
+    echo "At least 2 arguments are required. $# passed"
     return 1
 fi
 
 # set up variables
-configs_namespace=$1
-git_command=$2
+configs_namespace=${@: -1}
+git_command=${@:1:$#-1}
 repos_path="$HOME/dotfiles/configs/$configs_namespace/repos"
 
 # repos path exists
