@@ -23,7 +23,8 @@ if [ ! -f $repos_path ]; then
 fi
 
 git_operate() {
-    repo_dir="$1"
+    git_command=$1
+    repo_dir=$2
     # Skip if directory path is empty
     if [ -z "$repo_dir" ]; then
         return 0
@@ -47,8 +48,9 @@ git_operate() {
     fi
     printf "\n"
 }
+export -f git_operate
 
-# Read each line of the file
-while IFS= read -r repo_dir; do
-    git_operate $repo_dir
-done < $repos_path
+cat $repos_path | parallel --keep-order git_operate $git_command $repo_dir
+#while IFS= read -r repo_dir; do
+#    git_operate $repo_dir
+#done < $repos_path
