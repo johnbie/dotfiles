@@ -5,7 +5,6 @@
 # For instance, `.git-batch.sh fetch main` fetches on all repositories defined in ~/dotfiles/configs/main/repos
 # and `.git-batch.sh fetch --all main` fetches for all remotes.
 
-
 # need 2 parameters
 if [ $# -lt 2 ]; then
     echo "At least 2 arguments are required. $# passed"
@@ -23,11 +22,11 @@ if [ ! -f $repos_path ]; then
     return 1
 fi
 
-# Read each line of the file
-while IFS= read -r repo_dir; do
+git_operate() {
+    repo_dir="$1"
     # Skip if directory path is empty
     if [ -z "$repo_dir" ]; then
-        continue
+        return 0
     fi
 
     # evaluate any bash variables
@@ -47,4 +46,9 @@ while IFS= read -r repo_dir; do
         echo "Directory '$repo_dir' does not exist."
     fi
     printf "\n"
+}
+
+# Read each line of the file
+while IFS= read -r repo_dir; do
+    git_operate $repo_dir
 done < $repos_path
