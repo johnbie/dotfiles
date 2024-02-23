@@ -11,7 +11,6 @@
 	pushff = push -f
 	unskip = update-index --no-skip-worktree
 	skip = update-index --skip-worktree
-	batch = !~/dotfiles/commands/git-batch.sh
 [push]
 	autoSetupRemote = true
 [http]
