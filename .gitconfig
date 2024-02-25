@@ -23,5 +23,6 @@
 	directory = /storage/emulated/0/notes/music-sheets
 	directory = /storage/emulated/0/notes/vansoftworks-technical-wiki
         directory = /storage/emulated/0/notes/notes-archive
+	directory = /storage/emulated/0/notes/rubiks-cube-notes
 [fetch]
 	writeCommitGraph = true
