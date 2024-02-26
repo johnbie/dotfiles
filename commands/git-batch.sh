@@ -5,23 +5,7 @@
 # For instance, `.git-batch.sh fetch main` fetches on all repositories defined in ~/dotfiles/configs/main/repos
 # and `.git-batch.sh fetch --all main` fetches for all remotes.
 
-# need 2 parameters
-if [ $# -lt 2 ]; then
-    echo "At least 2 arguments are required. $# passed"
-    return 1
-fi
-
-# set up variables
-configs_namespace=${@: -1}
-git_command=${@:1:$#-1}
-repos_path="$HOME/dotfiles/configs/$configs_namespace/repos"
-
-# repos path exists
-if [ ! -f $repos_path ]; then
-    echo "Repos file $repos_path not found."
-    return 1
-fi
-
+# define a function
 git_operate() {
     git_command=$1
     repo_dir=$2
@@ -49,6 +33,23 @@ git_operate() {
     printf "\n"
 }
 export -f git_operate
+
+# need 2 parameters
+if [ $# -lt 2 ]; then
+    echo "At least 2 arguments are required. $# passed"
+    return 1
+fi
+
+# set up variables
+configs_namespace=${@: -1}
+git_command=${@:1:$#-1}
+repos_path="$HOME/dotfiles/configs/$configs_namespace/repos"
+
+# repos path exists
+if [ ! -f $repos_path ]; then
+    echo "Repos file $repos_path not found."
+    return 1
+fi
 
 cat $repos_path | parallel --keep-order git_operate $git_command $repo_dir
 #while IFS= read -r repo_dir; do
