@@ -11,6 +11,7 @@
 	pushff = push -f
 	unskip = update-index --no-skip-worktree
 	skip = update-index --skip-worktree
+	prdiffs = "!f() { git diff $(git merge-base master HEAD); }; f"
 	prlog = "!f() { git log --oneline $(git merge-base master HEAD)..HEAD; }; f"
 [push]
 	autoSetupRemote = true
