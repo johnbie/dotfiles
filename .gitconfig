@@ -12,7 +12,7 @@
 	pushff = push -f
 	unskip = update-index --no-skip-worktree
 	skip = update-index --skip-worktree
-	prdiffs = "!f() { branch=${1:-HEAD}; git diff $(git merge-base master \"$branch\"); }; f"
+	prdiff = "!f() { branch=${1:-HEAD}; git diff $(git merge-base master \"$branch\"); }; f"
 	prlog = "!f() { branch=${1:-HEAD}; git log --oneline $(git merge-base master \"$branch\")..\"$branch\"; }; f"
 	pradds = "!f() { branch=${1:-HEAD}; git diff --name-only --diff-filter=A $(git merge-base master \"$branch\"); }; f"
 	prmods = "!f() { branch=${1:-HEAD}; git diff --name-only --diff-filter=M $(git merge-base master \"$branch\"); }; f"
