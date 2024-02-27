@@ -34,6 +34,22 @@ git_operate() {
 }
 export -f git_operate
 
+# define the batch function
+git_batch() {
+    git_command=$1
+    repos_path="$HOME/dotfiles/configs/$2/repos"
+
+    # repos path exists
+    if [ ! -f $repos_path ]; then
+        echo "Repos file $repos_path not found."
+        return 1
+    fi
+    echo "$repos_path"
+    echo "$git_command"
+    cat $repos_path | parallel --keep-order git_operate $git_command
+}
+export -f git_batch
+
 # need 2 parameters
 if [ $# -lt 2 ]; then
     echo "At least 2 arguments are required. $# passed"
@@ -43,15 +59,9 @@ fi
 # set up variables
 configs_namespace=${@: -1}
 git_command=${@:1:$#-1}
-repos_path="$HOME/dotfiles/configs/$configs_namespace/repos"
 
-# repos path exists
-if [ ! -f $repos_path ]; then
-    echo "Repos file $repos_path not found."
-    return 1
+if [ "$configs_namespace" == "all" ]; then
+    ls "$HOME/dotfiles/configs" | parallel --keep-order git_batch $git_command
+else
+    git_batch $git_command $configs_namespace
 fi
-
-cat $repos_path | parallel --keep-order git_operate $git_command $repo_dir
-#while IFS= read -r repo_dir; do
-#    git_operate $repo_dir
-#done < $repos_path
