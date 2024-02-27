@@ -36,14 +36,20 @@ export -f git_operate
 
 # define the batch function
 git_batch() {
+    # namespace exists
+    if [ ! -d "$HOME/dotfiles/configs/$2" ]; then
+        echo "namespace does not exist"
+        return 1
+    fi
+
     git_command=$1
     repos_path="$HOME/dotfiles/configs/$2/repos"
 
-    # repos path exists
+    # repos exists
     if [ ! -f $repos_path ]; then
-        echo "Repos file $repos_path not found."
-        return 1
+        return 0
     fi
+
     echo "$repos_path"
     echo "$git_command"
     cat $repos_path | parallel --keep-order git_operate $git_command
