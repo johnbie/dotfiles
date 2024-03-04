@@ -7,7 +7,7 @@
 [branch]
 	sort = committerdate
 [alias]
-	kick = commit --allow-empty -m \"kick pipe\" && git push
+	kick = "!git commit --allow-empty -m \"kick pipe\" && git push"
 	pushf = push --force-with-lease
 	pushff = push -f
 	unskip = update-index --no-skip-worktree
