@@ -3,7 +3,8 @@ alias helper='cd $HOME/helper-scripts'
 
 alias source-profile='source $HOME/.profile'
 
-alias clipboard='xclip -selection c -o'
+alias xclipi='xclip -selection c'
+alias xclipo='xclip -selection c -o'
 alias apt-sources='cd /etc/apt/sources.list.d'
 
 # do a per-configs folder configuration
