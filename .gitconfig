@@ -16,6 +16,7 @@
 	prlog = "!f() { branch=${1:-HEAD}; git log --oneline $(git merge-base master \"$branch\")..\"$branch\"; }; f"
 	pradds = "!f() { branch=${1:-HEAD}; git diff --name-only --diff-filter=A $(git merge-base master \"$branch\"); }; f"
 	prmods = "!f() { branch=${1:-HEAD}; git diff --name-only --diff-filter=M $(git merge-base master \"$branch\"); }; f"
+	fzfcheckout = !git checkout $(git branch | fzf)
 [push]
 	autoSetupRemote = true
 [http]
