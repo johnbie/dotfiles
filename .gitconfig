@@ -17,6 +17,7 @@
 	pradds = "!f() { branch=${1:-HEAD}; git diff --name-only --diff-filter=A $(git merge-base master \"$branch\"); }; f"
 	prmods = "!f() { branch=${1:-HEAD}; git diff --name-only --diff-filter=M $(git merge-base master \"$branch\"); }; f"
 	fzfcheckout = !git checkout $(git branch | fzf)
+	ghclone = "!f() { git clone git@github.com:\"$1\"/\"$2\"; }; f"
 [push]
 	autoSetupRemote = true
 [http]
