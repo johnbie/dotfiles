@@ -33,3 +33,5 @@
 	directory = /storage/emulated/0/notes/rubiks-cube-notes
 [fetch]
 	writeCommitGraph = true
+[init]
+	defaultBranch = master
