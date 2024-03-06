@@ -19,7 +19,8 @@
 	fzfcheckout = !git checkout $(git branch | fzf)
 	ghclone = "!f() { git clone git@github.com:\"$1\"/\"$2\"; }; f"
 	ghremoteadd = "!f() { git remote add \"$1\" git@github.com:\"$2\"/\"$3\"; }; f"
-	reset-upstream = reset --hard @{upstream}
+	reset-upstream = "!git fetch && git reset --hard @{upstream}"
+	rebase-upstream = "!git fetch && git rebase @{upstream}"
 [push]
 	autoSetupRemote = true
 [http]
