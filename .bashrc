@@ -125,3 +125,7 @@ export NVM_DIR="$HOME/.nvm"
 if hash thefuck 2>/dev/null; then
     eval "$(thefuck --alias)"
 fi
+
+# brew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
