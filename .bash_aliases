@@ -1,7 +1,4 @@
-alias xclipi='xclip -selection c'
-alias xclipo='xclip -selection c -o'
-
-# do a per-configs folder configuration
+# ad an alisas per defined aliases in configs folder
 configs_dir="$HOME/dotfiles/configs"
 if [ -d "$configs_dir" ]; then
     # Loop through each sub-folder
@@ -13,7 +10,7 @@ if [ -d "$configs_dir" ]; then
     done
 fi
 
-# add an alias per commands file
+# add an alias per command
 commands_dir="$HOME/dotfiles/commands"
 if [ -d "$commands_dir" ]; then
     for command_file in "$commands_dir"/*; do
