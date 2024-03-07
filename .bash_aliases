@@ -1,6 +1,5 @@
 alias xclipi='xclip -selection c'
 alias xclipo='xclip -selection c -o'
-alias apt-sources='cd /etc/apt/sources.list.d'
 
 # do a per-configs folder configuration
 configs_dir="$HOME/dotfiles/configs"
