@@ -1,2 +1,2 @@
-alias helper='cd $HOME/helper-scripts'
-alias shell-sandbox='cd $HOME/shell-sandbox'
+alias helper='cd $HOME/dev/helper-scripts'
+alias shell-sandbox='cd $HOME/dev/shell-sandbox'
