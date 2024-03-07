@@ -28,9 +28,8 @@
 [rebase]
 	autoStash = true
 [safe]
-	directory = /storage/emulated/0/notes
-	directory = D:/notes
+	directory = *
 [fetch]
 	writeCommitGraph = true
 [init]
-	defaultBranch = master
+	efaultBranch = master
