@@ -1,5 +1,3 @@
-alias source-profile='source $HOME/.profile'
-
 alias xclipi='xclip -selection c'
 alias xclipo='xclip -selection c -o'
 alias apt-sources='cd /etc/apt/sources.list.d'
