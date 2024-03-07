@@ -1,6 +1,3 @@
-alias dotfiles='cd $HOME/dotfiles'
-alias helper='cd $HOME/helper-scripts'
-
 alias source-profile='source $HOME/.profile'
 
 alias xclipi='xclip -selection c'
