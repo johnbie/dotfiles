@@ -33,4 +33,4 @@
 [fetch]
 	writeCommitGraph = true
 [init]
-	efaultBranch = master
+	defaultBranch = master
