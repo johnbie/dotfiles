@@ -5,3 +5,6 @@ alias source-profile='source $HOME/.profile'
 alias dotfiles='cd $HOME/dotfiles'
 alias helper='cd $HOME/dev/helper-scripts'
 alias shell-sandbox='cd $HOME/dev/shell-sandbox'
+
+# reboot as windows (main desktop only!)
+alias reboot-windows='sudo grub-reboot 2 && reboot'
