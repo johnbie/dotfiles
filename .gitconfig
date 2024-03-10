@@ -21,6 +21,8 @@
 	ghremoteadd = "!f() { git remote add \"$1\" git@github.com:\"$2\"/\"$3\"; }; f"
 	upreset = "!git fetch && git reset --hard @{upstream}"
 	uprebase = "!git fetch && git rebase @{upstream}"
+	resetup = "!git fetch && git reset --hard @{upstream}"
+	rebaseup = "!git fetch && git rebase @{upstream}"
 	aa = commit -a --noedit
 [push]
 	autoSetupRemote = true
