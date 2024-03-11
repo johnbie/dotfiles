@@ -24,6 +24,7 @@
 	resetup = "!git fetch && git reset --hard @{upstream}"
 	rebaseup = "!git fetch && git rebase @{upstream}"
 	aa = commit -a --noedit
+	restorehard = "!f() { git restore --staged $1 && git restore $1; }; f"
 [push]
 	autoSetupRemote = true
 [http]
