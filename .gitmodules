@@ -4,3 +4,6 @@
 [submodule "configs/notes"]
 	path = configs/notes
 	url = git@github.com:johnbie/notes-dotfile-config
+[submodule "configs/van"]
+	path = configs/van
+	url = git@github.com:johnbie/van-dotfile-config
