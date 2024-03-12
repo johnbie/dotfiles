@@ -20,9 +20,8 @@ if [ -d "$commands_dir" ]; then
             command_name=$(basename "$command_file")
             # Define the alias
             alias_name="${command_name%.sh}"  # Remove the '.sh' extension
-            alias_command="source $command_file"
             # Add the alias to the shell configuration file (e.g., ~/.bashrc)
-            eval "alias $alias_name=\"$alias_command\""
+	    eval "alias $alias_name=\"$command_file\""
         fi
     done
 fi

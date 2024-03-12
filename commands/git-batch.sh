@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Usage Guide
 # Run an arbituary git command on a collection of repositories as defined in the ~/dotfiles/configs/**/repos text file.
