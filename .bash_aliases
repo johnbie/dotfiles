@@ -10,18 +10,3 @@ if [ -d "$configs_dir" ]; then
     done
 fi
 
-# add an alias per command
-commands_dir="$HOME/dotfiles/commands"
-if [ -d "$commands_dir" ]; then
-    for command_file in "$commands_dir"/*; do
-        # Check if the file is a regular file and executable
-        if [ -f "$command_file" ] && [ -x "$command_file" ]; then
-            # Extract the command from the file path
-            command_name=$(basename "$command_file")
-            # Define the alias
-            alias_name="${command_name%.sh}"  # Remove the '.sh' extension
-            # Add the alias to the shell configuration file (e.g., ~/.bashrc)
-	    eval "alias $alias_name=\"$command_file\""
-        fi
-    done
-fi
