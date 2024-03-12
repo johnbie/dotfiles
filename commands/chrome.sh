@@ -14,4 +14,4 @@ if [ $# -gt 1 ]; then
 	url=$2
 fi
 
-eval "chromium --args --profile-directory='Profile $profile_number' $url"
+eval "chromium --args --profile-directory='Profile $profile_number' $url > /dev/null 2>&1 & disown"
