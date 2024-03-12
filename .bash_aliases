@@ -1,4 +1,4 @@
-# ad an alisas per defined aliases in configs folder
+# add an alisas per defined aliases in configs folder
 configs_dir="$HOME/dotfiles/configs"
 if [ -d "$configs_dir" ]; then
     # Loop through each sub-folder
@@ -9,4 +9,3 @@ if [ -d "$configs_dir" ]; then
         fi
     done
 fi
-
