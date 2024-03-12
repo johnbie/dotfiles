@@ -9,8 +9,8 @@
 
 # define a function
 git_operate() {
-    repo_dir=${@: -1}
-    git_command=${@:1:$#-1}
+    local repo_dir=${@: -1}
+    local git_command=${@:1:$#-1}
     # Skip if directory path is empty
     if [ -z "$repo_dir" ]; then
         return 0
@@ -38,8 +38,8 @@ export -f git_operate
 
 # define the batch function
 git_batch() {
-    configs_namespace=${@: -1}
-    git_command=${@:1:$#-1}
+    local configs_namespace=${@: -1}
+    local git_command=${@:1:$#-1}
     # namespace exists
     if [ ! -d "$HOME/dotfiles/configs/$configs_namespace" ]; then
         echo "namespace does not exist"
