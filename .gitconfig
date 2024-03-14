@@ -20,6 +20,7 @@
 	ghclone = "!f() { git clone git@github.com:\"$1\"/\"$2\"; }; f"
 	ghremoteadd = "!f() { git remote add \"$1\" git@github.com:\"$2\"/\"$3\"; }; f"
 	pullup = pull upstream master
+	pushup = push upstream master
 	resetup = "!git fetch && git reset --hard @{upstream}"
 	rebaseup = "!git fetch && git rebase @{upstream}"
 	aa = commit -a --noedit
