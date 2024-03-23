@@ -27,11 +27,11 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # run the auto-run scripts
-autorun_scripts="$HOME/dotfiles/autorun"
-if [ -d "$autorun_scripts" ]; then
+autoload_scripts="$HOME/dotfiles/autoload"
+if [ -d "$autoload_scripts" ]; then
     # Loop through each sub-folder
-    for autorun_script in "$autorun_scripts"/*; do
-        . "$autorun_script"
+    for autoload_script in "$autoload_scripts"/*; do
+        . "$autoload_script"
     done
 fi
 
