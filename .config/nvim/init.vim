@@ -10,10 +10,11 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 call plug#end()
 
-colorscheme desert 
+colorscheme catppuccin
 
 let mapleader = " "
 nnoremap <leader>pv :Vex<CR>
