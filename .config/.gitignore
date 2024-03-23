@@ -18,6 +18,7 @@ menus
 mimeapps.list
 nemo
 nvim/.netrwhist
+nvim/plugged
 nvm
 obsidian
 pulse
