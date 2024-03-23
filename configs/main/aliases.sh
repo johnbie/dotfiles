@@ -6,7 +6,8 @@ alias dotfiles='cd $HOME/dotfiles'
 alias helper='cd $HOME/dev/helper-scripts'
 alias shell-sandbox='cd $HOME/dev/shell-sandbox'
 
-# vim edit a file
+# vim
+alias vim="nvim"
 alias vimconfig="vim $HOME/.config/nvim/init.vim"
 
 # reboot as windows (main desktop only!)

@@ -1,6 +1,6 @@
 [core]
 	longpaths = true
-	editor = vim
+	editor = nvim
 [user]
 	email = johnqwerty.lee1@gmail.com
 	name = John Lee
