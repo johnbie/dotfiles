@@ -1,4 +1,5 @@
 caja
+cef_user_data
 chromium
 cinnamon
 cinnamon-session
@@ -8,6 +9,7 @@ dconf
 discord
 Docker Desktop
 enchant
+evolution
 github-copilot
 gtk-3.0/bookmarks
 google-chrome
@@ -25,8 +27,10 @@ nvm
 obsidian
 pulse
 Slack
+sticky
 thefuck/__pycache__
 xed
+
 zoom.conf
 zoomus.conf
 
