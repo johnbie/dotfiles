@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Usage Guide
+#
+# Pass the port number to get all the processes that are using it:
+# ```
+# list_pids_for_port 3000
+# ```
+
+sudo lsof -i :$1 | awk 'NR>1 {print $2}'
+
