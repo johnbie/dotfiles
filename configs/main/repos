@@ -1,3 +1,7 @@
 $HOME/dev/helper-scripts
-$HOME/dev/shell-sandbox
+$HOME/dev/sandbox/css-sandbox
+$HOME/dev/sandbox/docker-sandbox
+$HOME/dev/sandbox/node-sandbox
+$HOME/dev/sandbox/python-macros-sandbox
+$HOME/dev/sandbox/shell-sandbox
 $HOME/dotfiles
