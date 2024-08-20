@@ -31,6 +31,7 @@ sticky
 systemd
 thefuck/__pycache__
 xed
+xviewer/accels
 nodemon.json
 QtProject.conf
 zoom.conf
