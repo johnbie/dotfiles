@@ -7,8 +7,3 @@ export NVM_DIR="$HOME/.config/nvm"
 
 # brew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-# thefuck
-if hash thefuck 2>/dev/null; then
-    eval "$(thefuck --alias)"
-fi
