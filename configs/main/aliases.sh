@@ -10,8 +10,5 @@ alias shell-sandbox='cd $HOME/dev/shell-sandbox'
 alias vim="nvim"
 alias vimconfig="vim $HOME/.config/nvim/init.vim"
 
-# thefuck
-eval "$(thefuck --alias)"
-
 # reboot as windows (main desktop only!)
 alias reboot-windows='sudo grub-reboot 2 && reboot'

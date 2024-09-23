@@ -25,13 +25,3 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-
-# run the auto-run scripts
-autoload_scripts="$HOME/dotfiles/autoload"
-if [ -d "$autoload_scripts" ]; then
-    # Loop through each sub-folder
-    for autoload_script in "$autoload_scripts"/*; do
-        . "$autoload_script"
-    done
-fi
-

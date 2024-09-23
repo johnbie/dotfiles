@@ -105,6 +105,15 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# run the auto-run scripts
+autoload_scripts="$HOME/dotfiles/autoload"
+if [ -d "$autoload_scripts" ]; then
+    # Loop through each sub-folder
+    for autoload_script in "$autoload_scripts"/*; do
+        . "$autoload_script"
+    done
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
