@@ -1,4 +1,4 @@
-set scrolloff=8
+set scrolloff=7
 set number
 set rnu
 set tabstop=4 softtabstop=4
@@ -13,8 +13,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 call plug#end()
-
-colorscheme catppuccin
 
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
