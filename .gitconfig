@@ -18,7 +18,7 @@
 	prlog = "!f() { branch=${1:-HEAD}; git log --oneline $(git merge-base master \"$branch\")..\"$branch\"; }; f"
 	pradds = "!f() { branch=${1:-HEAD}; git diff --name-only --diff-filter=A $(git merge-base master \"$branch\"); }; f"
 	prmods = "!f() { branch=${1:-HEAD}; git diff --name-only --diff-filter=M $(git merge-base master \"$branch\"); }; f"
-	fzfcheckout = !git checkout $(git branch | fzf)
+	fzcheckout = !git checkout $(git branch | tac | fzf)
 	ghclone = "!f() { git clone git@github.com:\"$1\"/\"$2\"; }; f"
 	ghremoteadd = "!f() { git remote add \"$1\" git@github.com:\"$2\"/\"$3\"; }; f"
 	pullup = pull upstream master
