@@ -7,8 +7,8 @@
 [branch]
 	sort = committerdate
 [alias]
-    alias = config --get-regexp alias
-    kick = "!git commit --allow-empty -m \"kick pipe\" && git push"
+	alias = config --get-regexp alias
+	kick = "!git commit --allow-empty -m \"kick pipe\" && git push"
 	pushf = push --force-with-lease
 	pushff = push -f
 	unskip = update-index --no-skip-worktree
@@ -26,8 +26,8 @@
 	resetup = "!git fetch && git reset --hard @{upstream}"
 	rebaseup = "!git fetch && git rebase @{upstream}"
 	aa = commit -a --noedit
-    restorehard = "!f() { git restore --staged $1 && git restore $1; }; f"
-    pushup = "!git push -u origin $(git branch --show-current)"
+	restorehard = "!f() { git restore --staged $1 && git restore $1; }; f"
+	pushup = "!git push -u origin $(git branch --show-current)"
 [push]
 	autoSetupRemote = true
 [http]
