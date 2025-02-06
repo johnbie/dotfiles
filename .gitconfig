@@ -8,8 +8,8 @@
 	sort = committerdate
 [alias]
 	alias = config --get-regexp alias
-    c = commit -m
-    kick = "!git commit --allow-empty -m \"kick pipe\" && git push"
+	c = commit -m
+	kick = "!git commit --allow-empty -m \"kick pipe\" && git push"
 	pushf = push --force-with-lease
 	pushff = push -f
 	unskip = update-index --no-skip-worktree
