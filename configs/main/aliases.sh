@@ -12,3 +12,5 @@ alias vimconfig="vim $HOME/.config/nvim/init.vim"
 
 # reboot as windows (main desktop only!)
 alias reboot-windows='sudo grub-reboot 2 && reboot'
+alias shutdown-windows='sudo grub-reboot 2 && shutdown now'
+
