@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Usage guide
+# 
+# Moves everything besides .git and a folder of choice in current directory into the said folder
+# (i.e. `./pocket new-folder
+
+TARGET_FOLDER="$1"
+
+if [ -z "$TARGET_FOLDER" ]; then
+  echo "Usage: $0 <target-folder>"
+  exit 1
+fi
+
+# Ensure the target folder exists
+mkdir -p "$TARGET_FOLDER"
+
+# Move everything except .git and the target folder into the target folder
+shopt -s extglob
+mv -- !(.git|"$TARGET_FOLDER") "$TARGET_FOLDER"/ 2>/dev/null
+shopt -u extglob
+
