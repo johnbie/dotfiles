@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+# Usage guide
+# 
+# Adds commit history from repository a to repository b, at a specific folder in repository b
+# (i.e. ./add-history.sh ~/node-sandbox ~/sandbox
+#
+# NOTE: you need to create a git ignore file with the following:
+# ```
+# all_patches.patch
+# temp_patches
+# ```
+
+set -e  # Exit on error
+
+# Check for correct usage
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 <source_repo> <target_repo>"
+    exit 1
+fi
+
+SOURCE_REPO=$1
+TARGET_REPO=$2
+
+# Step 1: Generate patches from source repo
+cd "$SOURCE_REPO"
+git format-patch --stdout --no-stat --no-signature --root HEAD > "$TARGET_REPO/all_patches.patch"
+
+# Step 2: Apply patches one by one in target repo
+cd "$TARGET_REPO"
+mkdir -p temp_patches
+cd temp_patches
+
+# Ensure the patch file exists
+if [ ! -f ../all_patches.patch ]; then
+    echo "Error: Patch file not found in target repo."
+    exit 1
+fi
+
+# Split the patch file into individual commit patches
+csplit -z ../all_patches.patch '/^From /' '{*}'
+cd ..
+
+for patch in temp_patches/xx*; do
+    echo "Applying $patch"
+
+    # Extract commit message and remove the '[PATCH <N>/<total>]' part
+	COMMIT_MSG=$(sed -n '/^Subject:/s/^\(Subject: \[PATCH [0-9]*\/[0-9]*\] \)//p' "$patch")
+	echo $COMMIT_MSG
+
+    # Strip everything before the first diff line to create a clean patch
+    sed -i '1,6d' "$patch"
+
+    # Apply the patch
+    if git apply "$patch"; then
+		git add .
+		git commit -m "$COMMIT_MSG"
+		echo "Committed: $COMMIT_MSG"
+    else
+        echo "Failed to apply $patch, exitting..."
+		exit 1
+    fi
+done
+
+echo "All patches processed."
