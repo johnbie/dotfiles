@@ -29,6 +29,7 @@
 	aa = commit -a --noedit
 	restorehard = "!f() { git restore --staged $1 && git restore $1; }; f"
 	pushup = "!git push -u origin $(git branch --show-current)"
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 [push]
 	autoSetupRemote = true
 [http]
