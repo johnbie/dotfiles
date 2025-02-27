@@ -1,7 +1,7 @@
 {
   "name": "Keychron V3 ANSI Knob",
   "vendorProductId": 875823921,
-  "macros": [],
+  "macros": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
   "layers": [
     [
       "KC_ESC",
