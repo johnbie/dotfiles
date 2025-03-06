@@ -2,7 +2,7 @@
   "name": "Keychron V3 ANSI Knob",
   "vendorProductId": 875823921,
   "macros": [
-    "{KC_LCTL,KC_F4}",
+    "{KC_LALT,KC_F4}",
     "{+KC_LCTL}{+KC_LALT}t{-KC_LALT}{-KC_LCTL}",
     "{KC_LCTL,KC_F5}",
     "{+KC_LCTL}t{-KC_LCTL}",
