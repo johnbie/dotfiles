@@ -8,7 +8,6 @@
 	sort = committerdate
 [alias]
 	alias = config --get-regexp alias
-	c = commit -m
 	kick = "!git commit --allow-empty -m \"kick pipe\" && git push"
 	pushf = push --force-with-lease
 	pushff = push -f
@@ -27,11 +26,10 @@
 	pushup = push upstream master
 	resetup = "!git fetch && git reset --hard @{upstream}"
 	rebaseup = "!git fetch && git rebase @{upstream}"
-	aa = commit -a --noedit
 	restorehard = "!f() { git restore --staged $1 && git restore $1; }; f"
 	pushup = "!git push -u origin $(git branch --show-current)"
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	amend = '!git add -A && git commit --amend --no-edit'
+	amend = commit -a --noedit
 	append = "!f() { git add -A && git commit -m \"$1\"; }; f"
 [push]
 	autoSetupRemote = true
