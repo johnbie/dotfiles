@@ -31,6 +31,8 @@
 	restorehard = "!f() { git restore --staged $1 && git restore $1; }; f"
 	pushup = "!git push -u origin $(git branch --show-current)"
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	amend = '!git add -A && git commit --amend --no-edit'
+	append = "!f() { git add -A && git commit -m \"$1\"; }; f"
 [push]
 	autoSetupRemote = true
 [http]
