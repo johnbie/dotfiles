@@ -23,13 +23,12 @@
 	ghclone = "!f() { git clone git@github.com:\"$1\"/\"$2\"; }; f"
 	ghremoteadd = "!f() { git remote add \"$1\" git@github.com:\"$2\"/\"$3\"; }; f"
 	pullup = pull upstream master
-	pushup = push upstream master
 	resetup = "!git fetch && git reset --hard @{upstream}"
 	rebaseup = "!git fetch && git rebase @{upstream}"
 	restorehard = "!f() { git restore --staged $1 && git restore $1; }; f"
 	pushup = "!git push -u origin $(git branch --show-current)"
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	amend = commit -a --noedit
+	amend = commit -a --amend --no-edit
 	append = "!f() { git add -A && git commit -m \"$1\"; }; f"
 [push]
 	autoSetupRemote = true
