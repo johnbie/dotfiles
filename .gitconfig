@@ -7,6 +7,7 @@
 [branch]
 	sort = committerdate
 [alias]
+	vimc = "!nvim ~/.gitconfig"
 	alias = config --get-regexp alias
 	kick = "!git commit --allow-empty -m \"kick pipe\" && git push"
 	pushf = push --force-with-lease
