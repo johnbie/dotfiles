@@ -31,6 +31,8 @@
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	amend = commit -a --amend --no-edit
 	append = "!f() { git add -A && git commit -m \"$1\"; }; f"
+	rc = rebase --continue
+	ra = rebase --abort
 [push]
 	autoSetupRemote = true
 [http]
