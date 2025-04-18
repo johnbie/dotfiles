@@ -27,7 +27,7 @@
 	resetup = "!git fetch && git reset --hard @{upstream}"
 	rebaseup = "!git fetch && git rebase @{upstream}"
 	restorehard = "!f() { git restore --staged $1 && git restore $1; }; f"
-	pushup = "!git push -u origin $(git branch --show-current)"
+	pushup = "!git fetch && git push @{upstream}"
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	amend = commit -a --amend --no-edit
 	append = "!f() { git add -A && git commit -m \"$1\"; }; f"
