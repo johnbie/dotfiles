@@ -33,6 +33,8 @@
 	append = "!f() { git add -A && git commit -m \"$1\"; }; f"
 	rc = rebase --continue
 	ra = rebase --abort
+	mc = merge --continue
+	ma = merge --abort
 [push]
 	autoSetupRemote = true
 [http]
