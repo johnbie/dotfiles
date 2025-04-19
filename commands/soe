@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+# Usage guide
+#
+# Calls a system of equation on either the piped file, or the provided file input
+# (i.e. `cat file.txt || ./soe` `./soe file.txt`)
+#
+# The file will be a list of operations
+# ```txt
+# 3 * .8
+# 4 * 0.2
+# 1/2
+# ```
+#
+# The program will operate on each line, then sum it all up.
+
+# Get input
+if [ -t 0 ]; then
+  # No piped input. Is a file passed?
+  if [ -n "$1" ]; then
+    input="$1"
+  else
+    # No input
+    echo "Usage: $0 [file]"
+    echo "Or pipe input like: cat file | $0"
+    exit 1
+  fi
+else
+  # Piped input. Read from stdin
+  input="/dev/stdin"
+fi
+
+total=0
+
+while read -r line; do
+  # Skip empty lines
+  [[ -z "$line" ]] && continue
+
+# Use bc or awk to handle floating point math
+  result=$(awk "BEGIN {print $line}")
+  total=$(awk "BEGIN {print $total + $result}")
+done < "$input"
+
+# Print the final total
+echo "$total"
+
