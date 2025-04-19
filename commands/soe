@@ -33,11 +33,23 @@ fi
 total=0
 
 while read -r line; do
-  # Skip empty lines
-  [[ -z "$line" ]] && continue
+  # Skip empty or all-whitespace lines
+  [[ -z "${line//[[:space:]]/}" ]] && continue
 
-# Use bc or awk to handle floating point math
-  result=$(awk "BEGIN {print $line}")
+  # Trim leading/trailing whitespace
+  line=$(echo "$line" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+  # If it's just numbers separated by spaces or tabs, multiply them
+  if [[ "$line" =~ ^[0-9.[:space:]]+$ ]]; then
+    product=1
+    for num in $line; do
+      product=$(awk "BEGIN {print $product * $num}")
+    done
+    result="$product"
+  else
+    # Otherwise treat as an expression (e.g., 3 * 0.8)
+    result=$(awk "BEGIN {print $line}")
+  fi
+
   total=$(awk "BEGIN {print $total + $result}")
 done < "$input"
 
