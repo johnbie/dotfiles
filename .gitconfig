@@ -7,10 +7,14 @@
 [branch]
 	sort = committerdate
 [alias]
-	vimc = "!nvim ~/.gitconfig"
 	alias = config --get-regexp alias
+	conf = "!nvim ~/.gitconfig"
 	kick = "!git commit --allow-empty -m \"kick pipe\" && git push"
-	pushf = push --force-with-lease
+    pusho = push origin HEAD
+    pullo = pull origin
+	pullup = pull upstream master
+	pushup = "!git fetch && git push @{upstream}"
+    pushf = push --force-with-lease
 	pushff = push -f
 	unskip = update-index --no-skip-worktree
 	skip = update-index --skip-worktree
@@ -23,13 +27,12 @@
 	fzcheckout = !git checkout $(git branch | tac | fzf)
 	ghclone = "!f() { git clone git@github.com:\"$1\"/\"$2\"; }; f"
 	ghremoteadd = "!f() { git remote add \"$1\" git@github.com:\"$2\"/\"$3\"; }; f"
-	pullup = pull upstream master
 	resetup = "!git fetch && git reset --hard @{upstream}"
 	rebaseup = "!git fetch && git rebase @{upstream}"
-	restorehard = "!f() { git restore --staged $1 && git restore $1; }; f"
-	pushup = "!git fetch && git push @{upstream}"
+    checkoutall = checkout -- .
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	amend = commit -a --amend --no-edit
+	amendup = "!git commit -a --amend --no-edit && git push --force-with-lease"
 	append = "!f() { git add -A && git commit -m \"$1\"; }; f"
 	rc = rebase --continue
 	ra = rebase --abort
