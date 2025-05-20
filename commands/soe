@@ -21,9 +21,8 @@ if [ -t 0 ]; then
     input="$1"
   else
     # No input
-    echo "Usage: $0 [file]"
-    echo "Or pipe input like: cat file | $0"
-    exit 1
+    echo "Usage: Either pass a file (\`soe file.txt\`) or pipe in the input (\`cat file.txt | soe\`)"
+    exit 0
   fi
 else
   # Piped input. Read from stdin
