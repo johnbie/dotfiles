@@ -24,3 +24,4 @@ _darcs
 ^/autorun/*
 ^/commands/*
 ^/configs/*
+^/scripts/*
