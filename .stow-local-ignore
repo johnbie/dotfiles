@@ -28,4 +28,4 @@ _darcs
 ^/commands/*
 ^/configs/*
 ^/scripts/*
-
+\setup.sh
