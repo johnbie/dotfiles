@@ -105,6 +105,10 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    eval $(ssh-agent -s) > /dev/null
+fi
+
 # run the auto-run scripts
 autoload_scripts="$HOME/dotfiles/autoload"
 if [ -d "$autoload_scripts" ]; then
