@@ -2,6 +2,8 @@
 description: Process and manage the task queue — triage, execute, and close tasks.
 ---
 
+// turbo-all
+
 # Task Workflow — Process
 
 Use this workflow to process the task queue at `~/.agent/tasks/`.

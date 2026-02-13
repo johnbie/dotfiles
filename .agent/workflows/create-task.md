@@ -2,6 +2,8 @@
 description: Create a new task in the task queue.
 ---
 
+// turbo-all
+
 # Task Workflow — Create
 
 Use this workflow to create a new task in the queue at `~/.agent/tasks/`.
