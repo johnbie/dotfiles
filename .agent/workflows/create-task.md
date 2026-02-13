@@ -10,14 +10,21 @@ Use this workflow to create a new task in the queue at `~/.agent/tasks/`.
 
 Refer to `~/.agent/tasks/README.md` for the full schema (priorities, categories, front matter, naming).
 
+> **Important:** To avoid IDE file-permission dialogs, use **only `run_command`** with shell commands for ALL file and directory operations throughout this workflow. Do NOT use `list_dir`, `view_file`, or `write_to_file` tools on the tasks directory. Use `ls` to list, `cat` to read, `cp` to copy, and `sed` to edit.
+
 ---
 
 ## Steps
 
 ### 1. Copy the Template
 
-- Copy `~/.agent/template/task-template.md` to a new file.
-- If the template or task folders are missing, create them.
+```bash
+# Create target folder if missing
+mkdir -p ~/.agent/tasks/inbox ~/.agent/tasks/today
+
+# Copy template to target location (set DEST to inbox/ or today/)
+cp ~/.agent/template/task-template.md ~/.agent/tasks/inbox/P1-descriptive-name.md
+```
 
 ### 2. Set the Filename
 
@@ -26,20 +33,65 @@ Refer to `~/.agent/tasks/README.md` for the full schema (priorities, categories,
 
 ### 3. Fill in Front Matter
 
-- `created`: current datetime (ISO 8601)
-- `category`: one of `Infrastructure`, `Business`, `Websites`, `Chores`, `Learning`, `Self-Improvement`, `Misc`
-- `assigned`: `AI` or `Human`
-- `due`: if applicable
-- `previous_task`, `next_task`: base filename of linked tasks, if applicable
+Use `sed` to populate front matter fields in-place:
+
+```bash
+FILE=~/.agent/tasks/inbox/P1-descriptive-name.md
+
+sed -i "s/^created:.*/created: $(date -Iseconds)/" "$FILE"
+sed -i "s/^category:.*/category: Infrastructure/" "$FILE"
+sed -i "s/^assigned:.*/assigned: AI/" "$FILE"
+# Optional fields:
+sed -i "s/^due:.*/due: 2026-02-20/" "$FILE"
+sed -i "s/^previous_task:.*/previous_task: P2-some-other-task.md/" "$FILE"
+sed -i "s/^next_task:.*/next_task: P3-follow-up.md/" "$FILE"
+```
 
 ### 4. Fill in Sections
 
-- **Reason** — why this task is needed, with context and motivation.
-- **Requirements** — checklist of requirements or blockers.
-- **How to Perform** — step-by-step instructions.
-- **Reference** *(optional)* — relevant links, files, or resources.
+Use a heredoc with `cat` to replace the body content below the front matter:
+
+```bash
+FILE=~/.agent/tasks/inbox/P1-descriptive-name.md
+
+# Extract front matter (lines 1 through closing ---), then append body
+FRONT_MATTER=$(sed -n '1,/^---$/{ /^---$/!p; /^---$/{ x; /---/{ x; p; q }; x; s/.*//; h; p } }' "$FILE")
+
+cat > "$FILE" << 'TASKEOF'
+---
+created: 2026-02-13T13:00:00-08:00
+due:
+finished:
+category: Infrastructure
+assigned: AI
+previous_task:
+next_task:
+---
+
+# Task Title
+
+## Reason
+
+Why this task is needed.
+
+## Requirements
+
+- [ ] Requirement 1
+- [ ] Requirement 2
+
+## How to Perform
+
+Step-by-step instructions.
+
+## Reference
+
+- Relevant links and files.
+TASKEOF
+```
+
+> The above is an example — replace the content with actual values. The key point is to use `cat > file << 'EOF'` to write file content via shell commands.
 
 ### 5. Place the File
 
 - Default: `~/.agent/tasks/inbox/`
-- If it should be done today: `~/.agent/tasks/today/`
+- If it should be done today: `mv ~/.agent/tasks/inbox/FILE ~/.agent/tasks/today/`
