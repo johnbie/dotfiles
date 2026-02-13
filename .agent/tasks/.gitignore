@@ -1,0 +1,4 @@
+# Ignore task contents — only track structure
+*
+!.gitignore
+!README.md
