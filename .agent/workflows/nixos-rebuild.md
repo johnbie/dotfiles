@@ -18,10 +18,14 @@ Instead, you **MUST** provide the exact command to the user and ask them to run 
 
 
 ### Required Procedure for Agents:
-1.  **Modify** the Nix configuration files.
-2.  **Stage** all changes using `git add .`.
-3.  **Commit** the changes with a descriptive message (what and why).
-4.  **Inform** the user that changes are committed and provide the exact command for them to run.
+1.  **Modify** the Nix configuration files (e.g., `configuration.nix`).
+2.  **Verify** syntax if possible (e.g. `nix-instantiate --parse`).
+3.  **Stage** all changes using `git add .`.
+4.  **COMMIT** the changes BEFORE informing the user. Use `run_command` to execute:
+    ```bash
+    git commit -m "feat(config): [summary of changes]"
+    ```
+5.  **Inform** the user that changes have been committed and provide the exact `nixos-rebuild` command for them to run.
 
 **Commit Message Guidelines**:
 - Include context on **what** changed and **why**.
