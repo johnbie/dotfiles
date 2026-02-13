@@ -2,7 +2,7 @@
 description: Process and manage the task queue — triage, execute, and close tasks.
 ---
 
-# Task Workflow
+# Task Workflow — Process
 
 Use this workflow to process the task queue at `~/.agent/tasks/`.
 
@@ -10,7 +10,7 @@ Refer to `~/.agent/tasks/README.md` for the full schema (priorities, categories,
 
 ---
 
-## Processing Tasks
+## Steps
 
 ### 1. Pick the Next Task
 
@@ -58,22 +58,6 @@ When work is finished (or has failed):
    - **`done/`** — task completed successfully.
    - **`failed/`** — task was attempted but could not be completed.
 4. Return to step 1 to process the next task, or stop if the user says so.
-
----
-
-## Creating a New Task
-
-When the user asks to create a task (or you identify one that should be tracked):
-
-1. **Copy the template** from `~/.agent/template/task-template.md`.
-2. **Set the filename** to `P{0-5}-descriptive-name.md` based on priority.
-3. **Fill in front matter:**
-   - `created`: current datetime
-   - `category`: one of `Infrastructure`, `Business`, `Websites`, `Chores`, `Learning`, `Self-Improvement`, `Misc`
-   - `assigned`: `AI` or `Human`
-   - `due`, `previous_task`, `next_task`: if applicable
-4. **Fill in sections:** Reason, Requirements, How to Perform, and optionally Reference.
-5. **Place the file** in `~/.agent/tasks/inbox/` (default) or `~/.agent/tasks/today/` if it should be done today.
 
 ---
 
