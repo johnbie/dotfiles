@@ -19,4 +19,7 @@ or
 ```bash
 git add <new-file>
 ```
-**Before** running `nixos-rebuild`.
+**Before** providing the rebuild command to the user.
+
+> [!CAUTION]
+> **DANGER**: Do not run the rebuild yourself. Add the files to git, then ask the user to run the `nixos-rebuild` command manually.
