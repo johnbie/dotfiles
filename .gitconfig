@@ -32,7 +32,7 @@
 	resetup = "!git fetch && git reset --hard @{upstream}"
 	rebaseup = "!git fetch && git rebase @{upstream}"
 	rest = reset HEAD # restore --all for all files
-    checkoutall = checkout -- .
+	checkoutall = checkout -- .
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	amend = commit -a --amend --no-edit
 	amendup = "!git commit -a --amend --no-edit && git push --force-with-lease"
@@ -42,8 +42,10 @@
 	mc = merge --continue
 	ma = merge --abort
 	rs = restore --staged
-    stashall = "!git add -A && git stash"
-    unstash = "!git stash pop && git restore --staged -A"
+	stashall = "!git add -A && git stash"
+	unstash = "!git stash pop && git restore --staged -A"
+	soci-wtup = "!f() { ~/soci/soci-worktree-tools/spawn-branch.sh $1 $2 $3; }; f"
+	soci-wtdown = "!f() { ~/soci/soci-worktree-tools/teardown-branch.sh $1; }; f"
 [push]
 	autoSetupRemote = true
 [http]
