@@ -79,6 +79,11 @@ require("lazy").setup({
             -- optional but recommended
             { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
         }
+    },
+    {
+      'nvim-treesitter/nvim-treesitter',
+      lazy = false,
+      build = ':TSUpdate'
     }
 })
 
@@ -88,3 +93,29 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live gr
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
+local treesitter = require('nvim-treesitter')
+treesitter.setup({
+  highlight = { enable = true },
+  indent = { enable = true },
+})
+treesitter.install {
+  "javascript",
+  "typescript",
+  "php",
+  "python",
+  "bash",
+  "json",
+  "yaml",
+  "html",
+  "css",
+  "sql",
+  "go",
+  "lua",
+  "markdown",
+  "dockerfile",
+  "hcl",
+  "xml",
+  "regex",
+  "jsdoc",
+  "phpdoc",
+}
