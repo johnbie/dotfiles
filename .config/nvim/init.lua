@@ -84,6 +84,16 @@ require("lazy").setup({
       'nvim-treesitter/nvim-treesitter',
       lazy = false,
       build = ':TSUpdate'
+    },
+    {
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v3.x",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "MunifTanjim/nui.nvim",
+        "nvim-tree/nvim-web-devicons",
+    },
+      lazy = false,
     }
 })
 
@@ -119,3 +129,5 @@ treesitter.install {
   "jsdoc",
   "phpdoc",
 }
+
+vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>', {})
