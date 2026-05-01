@@ -30,9 +30,6 @@ return {
                     "yamlls",
                     "html",
                     "cssls",
-                    "dockerls",
-                    "terraformls",
-                    "lemminx",
                 }
             })
         end,
@@ -40,7 +37,13 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function()
+            vim.lsp.config("lua_ls", {
+                root_markers = { ".emmyrc.json", ".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml", "stylua.toml", "selene.toml", "selene.yml", ".git" },
+            })
             vim.lsp.enable("lua_ls")
+            vim.lsp.config("ts_ls", {
+                root_markers = { "package-lock.json", "yarn.lock", "pnpm-lock.yaml", "bun.lockb", "bun.lock", ".git" },
+            })
             vim.lsp.enable("ts_ls")
             vim.lsp.enable("intelephense")
             vim.lsp.enable("pyright")
@@ -49,9 +52,6 @@ return {
             vim.lsp.enable("yamlls")
             vim.lsp.enable("html")
             vim.lsp.enable("cssls")
-            vim.lsp.enable("dockerls")
-            vim.lsp.enable("terraformls")
-            vim.lsp.enable("lemminx")
         end,
     }
 }
