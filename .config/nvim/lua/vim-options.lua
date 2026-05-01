@@ -1,0 +1,47 @@
+-- Leader key (must be set before plugins)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- Editor defaults
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.cursorline = true
+
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.smartindent = true
+
+vim.opt.wrap = false
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+vim.opt.termguicolors = true
+vim.opt.updatetime = 250
+vim.opt.clipboard = "unnamedplus"
+vim.opt.undofile = true
+
+-- Move selected lines in visual mode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Keep cursor centered when scrolling
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- Navigate vim panes better
+vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
+vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
+vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
+vim.keymap.set('n', '<c-l›', ':wincmd l<CR>')
+
+-- Spaces as tabs (uncomment to use 2-space indentation)
+-- vim.cmd("set expandtab")
+-- vim.cmd("set tabstop=2")
+-- vim.cmd("set softtabstop=2")
+-- vim.cmd("set shiftwidth=2")
