@@ -52,6 +52,8 @@ return {
             vim.lsp.enable("yamlls")
             vim.lsp.enable("html")
             vim.lsp.enable("cssls")
+
+            vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
         end,
     }
 }
