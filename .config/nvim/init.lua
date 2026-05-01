@@ -59,43 +59,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Plugins
-require("lazy").setup({
-    {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        priority = 1000,
-        config = function()
-            vim.cmd.colorscheme("catppuccin")
-        end,
-    },
-    {
-        "christoomey/vim-tmux-navigator",
-        lazy = false,
-    },
-    {
-        'nvim-telescope/telescope.nvim', version = '*',
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-            -- optional but recommended
-            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-        }
-    },
-    {
-      'nvim-treesitter/nvim-treesitter',
-      lazy = false,
-      build = ':TSUpdate'
-    },
-    {
-      "nvim-neo-tree/neo-tree.nvim",
-      branch = "v3.x",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "MunifTanjim/nui.nvim",
-        "nvim-tree/nvim-web-devicons",
-    },
-      lazy = false,
-    }
-})
+require("lazy").setup("plugins")
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
