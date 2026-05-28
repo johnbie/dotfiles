@@ -3,3 +3,5 @@ alias xclipo='(xclip -selection c -o | tr -d "\r"; echo)' # output
 xclipm() { xclipo | "$@" | xclipi; }
 alias xclipjq='xclipo | jq . | xclipi'
 alias xclipjs='xclipo | jq fromjson | xclipi'
+alias pbvipe='pbpaste | vipe | pbcopy'
+alias pbjq='pbpaste | jq .'
