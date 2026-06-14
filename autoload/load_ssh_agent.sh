@@ -17,9 +17,9 @@ agent_load () {
 
     if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
         agent_start
-        ssh-add
+        ssh-add ~/.ssh/id_ed25519
     elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
-        ssh-add
+        ssh-add ~/.ssh/id_ed25519
     fi
 
     unset env
